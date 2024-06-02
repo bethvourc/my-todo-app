@@ -21,26 +21,33 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, toggleComplete, deleteTodo, e
   };
 
   return (
-    <div>
+    <div className="flex items-center justify-between p-2 border-b border-gray-200">
       {isEditing ? (
         <>
           <input
             type="text"
             value={newDescription}
             onChange={(e) => setNewDescription(e.target.value)}
+            className="flex-1 p-2 border border-gray-300 rounded"
           />
-          <button onClick={handleSave}>Save</button>
+          <button onClick={handleSave} className="ml-2 p-2 bg-green-500 text-white rounded">
+            Save
+          </button>
         </>
       ) : (
         <>
           <span
-            style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+            className={`flex-1 ${todo.completed ? 'line-through text-gray-500' : ''}`}
             onClick={() => toggleComplete(todo.id)}
           >
             {todo.description}
           </span>
-          <button onClick={handleEdit}>Edit</button>
-          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          <button onClick={handleEdit} className="ml-2 p-2 bg-yellow-500 text-white rounded">
+            Edit
+          </button>
+          <button onClick={() => deleteTodo(todo.id)} className="ml-2 p-2 bg-red-500 text-white rounded">
+            Delete
+          </button>
         </>
       )}
     </div>

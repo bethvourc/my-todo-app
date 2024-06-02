@@ -3,7 +3,7 @@ import TodoList from './components/TodoList';
 
 const App: React.FC = () => {
   return (
-    <div>
+    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
       <TodoList />
     </div>
   );
