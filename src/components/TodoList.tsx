@@ -41,14 +41,28 @@ const TodoList: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 bg-white shadow-lg rounded-lg">
+    <div className="bg-white shadow-lg rounded-lg p-6">
       <h1 className="text-2xl font-bold text-center mb-4">Todo List</h1>
       <TodoForm addTodo={addTodo} />
-      <h2 className="text-xl font-semibold mt-4">All Todos</h2>
-      {todos.length === 0 ? (
-        <p className="text-gray-500 text-center mt-4">No todos available.</p>
-      ) : (
-        todos.map((todo) => (
+      <div className="mt-6">
+        <h2 className="text-xl font-semibold">All Todos</h2>
+        {todos.length === 0 ? (
+          <p className="text-gray-500 text-center mt-4">No todos available.</p>
+        ) : (
+          todos.map((todo) => (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+            />
+          ))
+        )}
+      </div>
+      <div className="mt-6">
+        <h2 className="text-xl font-semibold">Uncompleted Todos</h2>
+        {filterTodos(false).map((todo) => (
           <TodoItem
             key={todo.id}
             todo={todo}
@@ -56,28 +70,20 @@ const TodoList: React.FC = () => {
             deleteTodo={deleteTodo}
             editTodo={editTodo}
           />
-        ))
-      )}
-      <h2 className="text-xl font-semibold mt-4">Uncompleted Todos</h2>
-      {filterTodos(false).map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          toggleComplete={toggleComplete}
-          deleteTodo={deleteTodo}
-          editTodo={editTodo}
-        />
-      ))}
-      <h2 className="text-xl font-semibold mt-4">Completed Todos</h2>
-      {filterTodos(true).map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          toggleComplete={toggleComplete}
-          deleteTodo={deleteTodo}
-          editTodo={editTodo}
-        />
-      ))}
+        ))}
+      </div>
+      <div className="mt-6">
+        <h2 className="text-xl font-semibold">Completed Todos</h2>
+        {filterTodos(true).map((todo) => (
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            toggleComplete={toggleComplete}
+            deleteTodo={deleteTodo}
+            editTodo={editTodo}
+          />
+        ))}
+      </div>
     </div>
   );
 };

@@ -21,9 +21,9 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Enter todo description"
-        className="flex-1 p-2 border border-gray-300 rounded"
+        className="flex-1 p-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:border-blue-500"
       />
-      <button type="submit" className="p-2 bg-blue-500 text-white rounded">
+      <button type="submit" className="p-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600">
         Add Todo
       </button>
     </form>
