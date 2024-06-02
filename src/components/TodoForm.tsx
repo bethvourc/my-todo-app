@@ -15,15 +15,15 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTodo }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 mt-4">
+    <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-2 mt-4">
       <input
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Enter todo description"
-        className="flex-1 p-2 border border-gray-300 rounded shadow-sm focus:outline-none focus:border-blue-500"
+        className="flex-1 p-2 border border-secondary rounded shadow-sm focus:outline-none focus:border-accent text-primary bg-white"
       />
-      <button type="submit" className="p-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600">
+      <button type="submit" className="p-2 bg-accent text-white rounded shadow hover:bg-blue-600">
         Add Todo
       </button>
     </form>

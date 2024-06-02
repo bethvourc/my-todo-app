@@ -28,6 +28,7 @@ a:hover {
 }
 
 body {
+  @apply bg-background text-primary;
   margin: 0;
   display: flex;
   place-items: center;

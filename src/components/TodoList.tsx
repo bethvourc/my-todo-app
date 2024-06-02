@@ -41,13 +41,13 @@ const TodoList: React.FC = () => {
   };
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6">
-      <h1 className="text-2xl font-bold text-center mb-4">Todo List</h1>
+    <div className="bg-white shadow-lg rounded-lg p-6 w-full">
+      <h1 className="text-2xl font-bold text-center mb-4 text-primary">Todo List</h1>
       <TodoForm addTodo={addTodo} />
       <div className="mt-6">
-        <h2 className="text-xl font-semibold">All Todos</h2>
+        <h2 className="text-xl font-semibold text-primary">All Todos</h2>
         {todos.length === 0 ? (
-          <p className="text-gray-500 text-center mt-4">No todos available.</p>
+          <p className="text-secondary text-center mt-4">No todos available.</p>
         ) : (
           todos.map((todo) => (
             <TodoItem
@@ -61,7 +61,7 @@ const TodoList: React.FC = () => {
         )}
       </div>
       <div className="mt-6">
-        <h2 className="text-xl font-semibold">Uncompleted Todos</h2>
+        <h2 className="text-xl font-semibold text-primary">Uncompleted Todos</h2>
         {filterTodos(false).map((todo) => (
           <TodoItem
             key={todo.id}
@@ -73,7 +73,7 @@ const TodoList: React.FC = () => {
         ))}
       </div>
       <div className="mt-6">
-        <h2 className="text-xl font-semibold">Completed Todos</h2>
+        <h2 className="text-xl font-semibold text-primary">Completed Todos</h2>
         {filterTodos(true).map((todo) => (
           <TodoItem
             key={todo.id}
